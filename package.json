@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/christophedellac/ratemyplace"
   },
+  "engines": {
+    "node": "0.10.x"
+  },
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
@@ -17,7 +20,7 @@
     "karma-junit-reporter": "^0.2.2"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "./node_modules/bower/bin/bower install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1",
     "pretest": "npm install",
@@ -30,6 +33,7 @@
     "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','app/bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
   },
   "dependencies": {
+    "bower": "^1.3.12",
     "logfmt": "^1.2.0",
     "node-static": "^0.7.6"
   },
